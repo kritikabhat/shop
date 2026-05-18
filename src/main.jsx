@@ -10,7 +10,6 @@ import Home from './pages/Home.jsx'
 /**
  * Things to do:
  * 5. Add Btn add/delete functionality using arr of obj useState:
- *      Create methods in App/main. same method can be called in Cart
  * 6. Update Shop page cards Btns to be dynamic
  * 7. get icons for cart, home and shop pages
  * 8. beautify Cart page
