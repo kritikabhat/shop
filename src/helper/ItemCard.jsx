@@ -3,7 +3,8 @@
  * @returns Card for each item on sale
  */
 
-const ItemCard = ({ obj, productsObjArray, cart, setCart }) => {
+const ItemCard = ({ handleDeleteCartState, handleDecreaseCartState, 
+      handleIncreaseCartState, handleAddToCartState, obj, cart }) => {
 
   const handleAddToCart = (e) => {
     const updateItemTotalBtnDiv = e.target.parentNode.getElementsByClassName("updateItemTotalBtnDiv")[0]
@@ -13,48 +14,30 @@ const ItemCard = ({ obj, productsObjArray, cart, setCart }) => {
     addToCartBtn.style.display = "none"
 
     const id = e.target.parentNode.id
-    const newItem = productsObjArray.filter((item) => (item.id.toString() === id))[0]
-    const cartItem = {
-      id: newItem.id,
-      title: newItem.title,
-      price: newItem.price,
-      total: 1
-    }
-    setCart(cart => [...cart, cartItem])
+    handleAddToCartState(id)
   }
 
   const handleIncrease = (e) => {
     const id = e.target.parentNode.parentNode.id
-    const updatedItem = cart.filter((item) => (item.id.toString() === id))[0]
-    updatedItem.total += 1
-    
-    setCart(cart => cart.map((item) => 
-      item.id.toString() === id ? { ...item, total: updatedItem.total } : item
-    ))
-
+    handleIncreaseCartState(id)
   }
 
   const handleDecrease = (e) => {
     const id = e.target.parentNode.parentNode.id
     const updatedItem = cart.filter((item) => (item.id.toString() === id))[0]
     if (updatedItem.total === 1) {
-
       const updateItemTotalBtnDiv = e.target.parentNode.parentNode.getElementsByClassName("updateItemTotalBtnDiv")[0]
       updateItemTotalBtnDiv.style.display = "none"
 
       const addToCartBtn = e.target.parentNode.parentNode.getElementsByClassName("addToCartBtn")[0]
       addToCartBtn.style.display = "block"
 
+      handleDeleteCartState(id)
     } else {
       updatedItem.total -= 1
-      console.log(updatedItem)
     }
-    
-    setCart(cart => cart.map((item) => 
-      item.id.toString() === id ? { ...item, total: updatedItem.total } : item
-    ))
 
-  
+    handleDecreaseCartState(id, updatedItem)
   }
 
   return (

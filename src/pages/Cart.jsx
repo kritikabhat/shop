@@ -8,19 +8,29 @@
  * @returns shopping cart container
  */
 
-const Cart = () => {
+const Cart = ({ cart }) => {
+
+  const handleCartDelete = (e) => {
+  }
+
   return (
-    <>
-      <section>Cart Contents:
+      <section>
         <ul>
-          <li>
-            <span>Item 1</span>
-            <button>+</button>
-            
-            <button>-</button>
-          </li>
+          {
+            cart.map((obj) => {
+              return (
+                <li key={obj.title} className="cartItem">
+                  <div>{obj.title}</div>
+                  <div>{obj.total}</div>
+                  <button className="addDeleteBtn" type="button" >+</button>
+                  <button className="addDeleteBtn" type="button" >-</button>
+                  <button type="button" onClick={handleCartDelete}>D</button>
+                </li>
+              )
+            })
+          }
         </ul>
-      </section></>
+      </section>
   )
 }
 export default Cart

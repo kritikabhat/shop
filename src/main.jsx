@@ -9,19 +9,33 @@ import Home from './pages/Home.jsx'
 
 /**
  * Things to do:
- * 5. Add Btn add/delete functionality using arr of obj useState:
+ * Beautify using material-UI & google fonts
+ * https://mui.com/material-ui/react-button/
+ * https://mui.com/material-ui/getting-started/usage/
+ * https://fonts.google.com/icons?icon.set=Material+Icons&icon.query=store
+ * 
  * 6. Update Shop page cards Btns to be dynamic
  * 7. get icons for cart, home and shop pages
  * 8. beautify Cart page
  * 
- * 
-For shop page, pull from the memory-game
 for welcome page, pull from sign-up. Change that set up to React and use Grid
 
-Cart- i need to do myself because I never did ToDo properly. ul li works fine IMO
- *
-also need useNavigate???? 
- */
+Cart- ul/li for cart and also keep +/- (use the existing methods!) 
+  and addDelete button
+
+  first transfer the methods to helper
+
+ * Add this later to cart li
+ *                   <div className="cartImgDiv">
+                    <img src={obj.image} alt={`Image of ${obj.title}`} />
+                  </div>
+
+also need useNavigate???? May not be needed https://reactrouter.com/api/hooks/useNavigate
+ 
+Issues to fix if in mood:
+Make the display div thing persistent using states because they reset when you switch pages
+something wrong with Cart/Product arrays. If you add/update many times, it duplicates the products in cart array. why?
+*/
 
 
 const router = createBrowserRouter([

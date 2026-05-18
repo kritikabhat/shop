@@ -5,10 +5,11 @@
  * 
  * @returns page listing of items to purchase
  */
-import { useState } from "react"
 import ItemCard from "../helper/ItemCard"
 
-const Shop = ({ productsObjArray, cart, setCart }) => {
+const Shop = ({ handleDeleteCartState, handleDecreaseCartState, 
+    handleIncreaseCartState, handleAddToCartState, 
+    productsObjArray, cart }) => {
 
   return (
   <>
@@ -16,7 +17,11 @@ const Shop = ({ productsObjArray, cart, setCart }) => {
       {
         productsObjArray.map((obj) => {
           return (
-          <ItemCard obj={obj} productsObjArray={productsObjArray} cart={cart} setCart={setCart} key={obj.id}/>
+          <ItemCard handleDeleteCartState={handleDeleteCartState} 
+            handleDecreaseCartState={handleDecreaseCartState} 
+            handleIncreaseCartState={handleIncreaseCartState} 
+            handleAddToCartState={handleAddToCartState} obj={obj} 
+            cart={cart} key={obj.id}/>
           )
         })
       }
