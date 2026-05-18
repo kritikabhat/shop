@@ -1,0 +1,28 @@
+.shopArea {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+.itemCard {
+  min-height: 10rem;
+  font-size: 1.2rem;
+  padding: 1rem;
+  background-color: #f6cf57;
+  border-radius: 0.4rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.imgDiv {
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+.itemCard div img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.itemName {
+  padding-top: 0.5rem;
+  background-color: #f6cf57;
+  color: black;
+}
