@@ -49,7 +49,10 @@ export default function PageRoutes() {
                           handleAddToCartState={handleAddToCartState} 
                           productsObjArray={productsObjArray} 
                           cart={cart} />)
-        : name === "cart" ? (<Cart cart={cart} />)
+        : name === "cart" ? (<Cart cart={cart} 
+                          handleDeleteCartState={handleDeleteCartState}
+                          handleIncreaseCartState={handleIncreaseCartState}
+                          handleDecreaseCartState={handleDecreaseCartState} />)
         : name === "home" ? (<Home />)
         : <ErrorPage />
       }

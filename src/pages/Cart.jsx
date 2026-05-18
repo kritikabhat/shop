@@ -1,16 +1,30 @@
 /**
- * Btns should +/- the amount
- * if amount is 0, item should be removed from cart
- * the amount thing should be a text or input. if input can edit it
- * 
- * one state [{item1, 2}, {item2, 4}] to keep the items globally
  * 
  * @returns shopping cart container
  */
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, handleDeleteCartState, handleIncreaseCartState, 
+              handleDecreaseCartState }) => {
 
   const handleCartDelete = (e) => {
+    const id = e.target.parentNode.id
+    handleDeleteCartState(id)
+  }
+
+  const handleIncrease = (e) => {
+    const id = e.target.parentNode.id
+    handleIncreaseCartState(id)
+  }
+
+  const handleDecrease = (e) => {
+    const id = e.target.parentNode.id
+    const updatedItem = cart.filter((item) => (item.id.toString() === id))[0]
+    if (updatedItem.total === 1) {
+      handleDeleteCartState(id)
+    } else {
+      updatedItem.total -= 1
+    }
+    handleDecreaseCartState(id, updatedItem)
   }
 
   return (
@@ -19,11 +33,11 @@ const Cart = ({ cart }) => {
           {
             cart.map((obj) => {
               return (
-                <li key={obj.title} className="cartItem">
+                <li key={obj.title} className="cartItem" id={obj.id}>
                   <div>{obj.title}</div>
                   <div>{obj.total}</div>
-                  <button className="addDeleteBtn" type="button" >+</button>
-                  <button className="addDeleteBtn" type="button" >-</button>
+                  <button onClick={handleIncrease} className="addDeleteBtn" type="button" >+</button>
+                  <button onClick={handleDecrease} className="addDeleteBtn" type="button" >-</button>
                   <button type="button" onClick={handleCartDelete}>D</button>
                 </li>
               )

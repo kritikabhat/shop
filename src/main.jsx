@@ -20,15 +20,10 @@ import Home from './pages/Home.jsx'
  * 
 for welcome page, pull from sign-up. Change that set up to React and use Grid
 
-Cart- ul/li for cart and also keep +/- (use the existing methods!) 
-  and addDelete button
-
-  first transfer the methods to helper
-
- * Add this later to cart li
- *                   <div className="cartImgDiv">
-                    <img src={obj.image} alt={`Image of ${obj.title}`} />
-                  </div>
+In the end, don't forget to add image to cart li
+  <div className="cartImgDiv">
+    <img src={obj.image} alt={`Image of ${obj.title}`} />
+  </div>
 
 also need useNavigate???? May not be needed https://reactrouter.com/api/hooks/useNavigate
  
