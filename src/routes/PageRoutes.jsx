@@ -6,12 +6,12 @@ import ErrorPage from "../helper/ErrorPage.jsx"
 
 export default function PageRoutes() {
     const { name } = useParams()
-    const [productsObjArray, setProductsObjArray] = useOutletContext()
+    const [productsObjArray, setProductsObjArray, cart, setCart] = useOutletContext()
 
     return (<>
     <section>
         {
-        name === "shop" ? (<Shop productsObjArray={productsObjArray} />)
+        name === "shop" ? (<Shop productsObjArray={productsObjArray} cart={cart} setCart={setCart} />)
         : name === "cart" ? (<Cart />)
         : name === "home" ? (<Home />)
         : <ErrorPage />

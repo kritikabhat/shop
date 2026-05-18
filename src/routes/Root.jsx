@@ -5,6 +5,7 @@ import ShopNavBar from '../helper/ShopNavBar.jsx'
 function Root() {
   const [loading, setLoading] = useState(false)
   const [productsObjArray, setProductsObjArray] = useState([])
+  const [cart, setCart] = useState([])
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -38,7 +39,7 @@ function Root() {
       <header>
         <ShopNavBar />
       </header>
-      <Outlet context={[productsObjArray, setProductsObjArray]} />
+      <Outlet context={[productsObjArray, setProductsObjArray, cart, setCart]} />
     </>
   )
 }

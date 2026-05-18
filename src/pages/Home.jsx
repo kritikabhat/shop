@@ -13,7 +13,10 @@ const Home = () => {
         
       </div>
     </section>
-    <footer>Add cites here</footer>
+    <footer>
+      <a href="https://fakestoreapi.com/" title="fake store api">Shop items dataset by fakestoreapi.com</a>
+      <a href="" title="icons">Icons by google fonts</a>
+    </footer>
   </>
   )
 }
