@@ -14,7 +14,6 @@ import Home from './pages/Home.jsx'
  * https://mui.com/material-ui/getting-started/usage/
  * https://fonts.google.com/icons?icon.set=Material+Icons&icon.query=store
  * 
- * 6. Update Shop page cards Btns to be dynamic
  * 7. get icons for cart, home and shop pages
  * 8. beautify Cart page
  * 
@@ -26,10 +25,14 @@ In the end, don't forget to add image to cart li
   </div>
 
 also need useNavigate???? May not be needed https://reactrouter.com/api/hooks/useNavigate
- 
-Issues to fix if in mood:
-Make the display div thing persistent using states because they reset when you switch pages
-something wrong with Cart/Product arrays. If you add/update many times, it duplicates the products in cart array. why?
+
+Fix at the end:
+When it loads at root, home should open. It is blank. Home only opens when you go to /home
+
+When you do the Cart page, use the icon badge button thing
+https://mui.com/material-ui/react-button/#handling-clicks
+Put this in the nav bar!
+
 */
 
 

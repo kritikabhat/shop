@@ -42,7 +42,7 @@ function Root() {
   return (
     <>
       <header>
-        <ShopNavBar />
+        <ShopNavBar cart={cart} />
       </header>
       <Outlet context={[productsObjArray, setProductsObjArray, cart, setCart]} />
     </>

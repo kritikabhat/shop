@@ -2,6 +2,7 @@
  * Put these methods to helper later if possible
  * @returns Card for each item on sale
  */
+import Rating from '@mui/material/Rating';
 
 const ItemCard = ({ handleDeleteCartState, handleDecreaseCartState, 
       handleIncreaseCartState, handleAddToCartState, obj, cart,
@@ -32,23 +33,23 @@ const ItemCard = ({ handleDeleteCartState, handleDecreaseCartState,
 
   return (
     <div className="itemCard" key={obj.id} id={obj.id}>
-      <div className="itemRating">{obj.rating.rate}</div>
+      <Rating name="half-rating-read" defaultValue={obj.rating.rate} precision={0.5} readOnly />
       <div className="imgDiv" >
         <img src={obj.image} alt={`Image of ${obj.title}`} />
       </div>
       <div className="itemName">{obj.title}</div>
       {
       obj.isVisible ?  (<button onClick={handleAddToCart} 
-              className="addToCartBtn" type="button">Add to Cart</button>)
-              : (<div className="updateItemTotalBtnDiv">
-                  <button onClick={handleIncrease} className="addDeleteBtn" 
-                            type="button" >+</button>
-                  <div className="total">
-                    { cart.filter((item) => (item.id === obj.id))[0]?.total }
-                  </div>
-                  <button onClick={handleDecrease} className="addDeleteBtn"
-                            type="button" >-</button>
-                </div>)
+          className="addToCartBtn" type="button">Add to Cart</button>)
+          : (<div className="updateItemTotalBtnDiv">
+            <button onClick={handleDecrease} className="addDeleteBtn"
+                type="button" >-</button>
+            <div className="total">
+            { cart.filter((item) => (item.id === obj.id))[0]?.total }
+            </div>
+            <button onClick={handleIncrease} className="addDeleteBtn" 
+                type="button" >+</button>
+          </div>)
       }
     </div>
   )
