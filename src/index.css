@@ -164,6 +164,75 @@ button:focus {
   height: 100%;
 }
 
+.cartArea {
+  background-color: #19588d;
+  display: grid;
+  grid-template-rows: 80% 20%;
+}
+.middleContainerCart {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+}
+.middleContainerCart h2 {
+  color: whitesmoke;
+}
+.middleContainerCart ul {
+  width: 80%;
+  padding: 0.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  background-color: #f5f5f5;
+}
+.middleContainerCart ul li {
+  display: inline-block;
+  border-bottom: solid 1px #bdbdbd;
+  padding: 0.2rem;
+  display: grid;
+  grid-template-columns: auto 20%;
+  gap: 1rem;
+}
+.cartImgDiv {
+  height: 100%;
+}
+.cartImgDiv img {
+  object-fit: contain;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+.detailsCartDiv {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cartBtn {
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+.cartDeleteBtn {
+  background-color: #f83034;
+}
+.cartDeleteBtn:hover {
+  background-color: #bc0019;
+}
+.cartDeleteBtnDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkoutBtnDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkoutBtnDiv button {
+  margin: 0;
+}
+
 .footer{
   background:#0b3d6e;
   padding: 30px 0px;
@@ -209,6 +278,19 @@ button:focus {
   .footer .row a i{
     margin:0% 3%;
   }
+  .middleContainerCart {
+    text-align: left;
+    align-items: flex-start;
+    margin-left: 2%;
+    margin-right: 1%;
+  }
+  .middleContainerCart ul {
+    width: 90%;
+  }
+  .middleContainerCart ul li {
+    display: block;
+
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -227,5 +309,8 @@ button:focus {
     }
     footer a {
       color: whitesmoke !important;
+    }
+    .cartArea h2 {
+      color: #1976d2;
     }
 }
