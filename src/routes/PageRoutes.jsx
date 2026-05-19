@@ -30,7 +30,7 @@ export default function PageRoutes() {
   const handleIncreaseCartState = (id) => {
     const updatedItem = cart.filter((item) => (item.id.toString() === id))[0]
     updatedItem.total += 1
-    
+
     setCart(cart => cart.map((item) => 
       item.id.toString() === id ? { ...item, total: updatedItem.total } : item
     ))
@@ -44,6 +44,7 @@ export default function PageRoutes() {
 
   const handleDeleteCartState = (id) => {
     const updatedCart = cart.filter((item) => (item.id.toString() !== id))
+    flipIsVisible(id)
     setCart(updatedCart)
   }
 

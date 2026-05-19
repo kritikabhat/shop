@@ -9,8 +9,7 @@ const Cart = ({ cart, handleDeleteCartState, handleIncreaseCartState,
               handleDecreaseCartState }) => {
 
   const handleCartDelete = (e) => {
-    console.log(e.target.parentNode.parentNode.parentNode)
-    const id = e.target.parentNode.parentNode.parentNode.id
+    const id = e.currentTarget.parentNode.parentNode.id
     handleDeleteCartState(id)
   }
 
@@ -38,7 +37,7 @@ const Cart = ({ cart, handleDeleteCartState, handleIncreaseCartState,
             {
               cart.map((obj) => {
                 return (
-                  <li key={obj.title} className="cartItem" id={obj.id}>
+                  <li key={obj.id} className="cartItem" id={obj.id}>
                     <div className='detailsCartDiv'>
                       <div className="cartImgDiv">
                         <img src={obj.image} alt={`Image of ${obj.title}`} />
@@ -49,9 +48,7 @@ const Cart = ({ cart, handleDeleteCartState, handleIncreaseCartState,
                       <button onClick={handleIncrease} className="cartBtn" type="button" >+</button>
                     </div>
                     <div className='cartDeleteBtnDiv'>
-                      <button onClick={handleCartDelete} className="cartDeleteBtn" type="button">
-                        <DeleteIcon fontSize='20px' disabled />
-                      </button>
+                      <DeleteIcon onClick={handleCartDelete} className="cartDeleteBtn" type="button" />
                     </div>
                   </li>
                 )
