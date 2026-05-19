@@ -9,7 +9,7 @@ import ItemCard from "../helper/ItemCard"
 
 const Shop = ({ handleDeleteCartState, handleDecreaseCartState, 
     handleIncreaseCartState, handleAddToCartState, 
-    productsObjArray, cart }) => {
+    productsObjArray, cart, flipIsVisible }) => {
 
   return (
   <>
@@ -21,7 +21,7 @@ const Shop = ({ handleDeleteCartState, handleDecreaseCartState,
             handleDecreaseCartState={handleDecreaseCartState} 
             handleIncreaseCartState={handleIncreaseCartState} 
             handleAddToCartState={handleAddToCartState} obj={obj} 
-            cart={cart} key={obj.id}/>
+            cart={cart} key={obj.id} flipIsVisible={flipIsVisible} />
           )
         })
       }

@@ -16,7 +16,12 @@ function Root() {
           throw new Error(`Response status: ${response.status}`)
         const responseJSON = await response.json()
 
-        setProductsObjArray(responseJSON)
+        const newArray = responseJSON.map((item) => {
+          return { ...item, isVisible: true }
+        })
+
+        // setProductsObjArray(responseJSON)
+        setProductsObjArray(newArray)
 
       } catch {
         console.log(error)

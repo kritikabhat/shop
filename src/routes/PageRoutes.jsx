@@ -1,4 +1,5 @@
 import { useParams, useOutletContext } from "react-router"
+import { useState } from 'react'
 import Shop from '../pages/Shop.jsx'
 import Cart from '../pages/Cart.jsx'
 import Home from '../pages/Home.jsx'
@@ -7,6 +8,12 @@ import ErrorPage from "../helper/ErrorPage.jsx"
 export default function PageRoutes() {
   const { name } = useParams()
   const [productsObjArray, setProductsObjArray, cart, setCart] = useOutletContext()
+
+  const flipIsVisible = (id) => {
+    setProductsObjArray(item => productsObjArray.map((item) => 
+      item.id.toString() === id ? { ...item, isVisible: !item.isVisible } : item
+    ))
+  }
 
   const handleAddToCartState = (id) => {
     const newItem = productsObjArray.filter((item) => (item.id.toString() === id))[0]
@@ -48,7 +55,7 @@ export default function PageRoutes() {
                           handleIncreaseCartState={handleIncreaseCartState} 
                           handleAddToCartState={handleAddToCartState} 
                           productsObjArray={productsObjArray} 
-                          cart={cart} />)
+                          cart={cart} flipIsVisible={flipIsVisible} />)
         : name === "cart" ? (<Cart cart={cart} 
                           handleDeleteCartState={handleDeleteCartState}
                           handleIncreaseCartState={handleIncreaseCartState}
