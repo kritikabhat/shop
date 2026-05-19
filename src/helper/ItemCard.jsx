@@ -33,23 +33,27 @@ const ItemCard = ({ handleDeleteCartState, handleDecreaseCartState,
 
   return (
     <div className="itemCard" key={obj.id} id={obj.id}>
-      <Rating name="half-rating-read" defaultValue={obj.rating.rate} precision={0.5} readOnly />
+      <div className='itemRatingPrice'>
+        <Rating name="half-rating-read" defaultValue={obj.rating.rate} precision={0.5} readOnly />
+        <div>${obj.price}</div>
+      </div>
       <div className="imgDiv" >
         <img src={obj.image} alt={`Image of ${obj.title}`} />
       </div>
       <div className="itemName">{obj.title}</div>
       {
-      obj.isVisible ?  (<button onClick={handleAddToCart} 
-          className="addToCartBtn" type="button">Add to Cart</button>)
+      obj.isVisible  
+          ? (<button onClick={handleAddToCart} className="addToCartBtn" 
+                type="button">Add to Cart</button>)
           : (<div className="updateItemTotalBtnDiv">
-            <button onClick={handleDecrease} className="addDeleteBtn"
-                type="button" >-</button>
-            <div className="total">
-            { cart.filter((item) => (item.id === obj.id))[0]?.total }
-            </div>
-            <button onClick={handleIncrease} className="addDeleteBtn" 
-                type="button" >+</button>
-          </div>)
+              <button onClick={handleDecrease} className="addDeleteBtn"
+                  type="button" >-</button>
+              <div className="total">
+              { cart.filter((item) => (item.id === obj.id))[0]?.total }
+              </div>
+              <button onClick={handleIncrease} className="addDeleteBtn" 
+                  type="button" >+</button>
+            </div>)
       }
     </div>
   )

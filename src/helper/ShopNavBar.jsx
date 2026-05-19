@@ -11,40 +11,27 @@ import IconButton from '@mui/material/IconButton'
 import Badge, { badgeClasses } from '@mui/material/Badge'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCartOutlined'
 
-import { createTheme } from '@mui/material/styles';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      light: '#757ce8',
-      main: '#3f50b5',
-      dark: '#002884',
-      contrastText: '#fff',
-    },
-  },
-})
-
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
     top: -12px;
     right: -6px;
   }
 `
-
 function ShopNavBar({ cart }) {
 
   return (
     <>
       <nav className='navBar'>
-        <Link to="home">
-          <WindowIcon color='primary' />
+        
+        <Link to="home" >
+          <WindowIcon sx={{color: 'white'}} className='navLinks' style={{borderRadius: "50%", padding:"0.5rem"}} />
         </Link>
         <Link to="shop">
-          <StorefrontIcon color='primary'/>
+          <StorefrontIcon sx={{color: 'white'}} className='navLinks' style={{borderRadius: "50%", padding:"0.5rem"}} />
         </Link>
         <Link to="cart">
-          <IconButton>
-            <ShoppingCartIcon fontSize="medium" color='primary'/>
+          <IconButton className='navLinks' sx={{color: 'white'}}>
+            <ShoppingCartIcon fontSize="medium" />
             <CartBadge badgeContent={cart.length} color="primary" overlap="circular" />
           </IconButton>
         </Link>

@@ -1,10 +1,10 @@
 * {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
 }
 
 :root {
   font: 18px/145% var(--sans);
-  color-scheme: light dark;
+  
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -17,28 +17,9 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
 body {
   margin: 0;
+  background-color: #0b3d6e;
 }
 
 #root {
@@ -75,12 +56,20 @@ p {
   color: black;
   min-height: 10rem;
   padding: 0.5rem;
-  background-color: whitesmoke;
+  background-color: #f5f5f5;
   border-radius: 0.4rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.itemCard:hover {
+  box-shadow: 0 0 10px #c2c2c2;
+  transform: translateY(-5px);
+}
+.itemCard:focus {
+  box-shadow: 0 0 10px #c2c2c2;
+  transform: translateY(-5px);
+}
 .imgDiv {
-  height: 14rem;
+  height: 16rem;
 }
 .itemCard div img {
   object-fit: contain;
@@ -111,4 +100,49 @@ p {
   display: flex;
   justify-content: space-around;
   padding-top: 1rem;
+}
+.navLinks:hover {
+  box-shadow: 0 0 10px #42a5f5;
+}
+.itemRatingPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+button {
+  margin: 0.2rem;
+  background-color: #1976d2;
+  color: white;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  transition-duration: 0.4s;
+  border: none;
+}
+.updateItemTotalBtnDiv button {
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+.updateItemTotalBtnDiv {
+  display: flex;
+  align-items: center;
+}
+button:hover {
+  background-color: #0d46a1;
+}
+button:focus {
+  background-color: #0d46a1;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color-scheme: light;
+    }
+    body {
+      background-color: #e2eaff;
+    }
+    .navLinks {
+      color: #1976d2 !important;
+    }
 }
