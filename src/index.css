@@ -171,7 +171,6 @@ button:focus {
 }
 .middleContainerCart {
   display: flex;
-
   flex-direction: column;
   align-items: center;
 }
@@ -187,7 +186,6 @@ button:focus {
   background-color: #f5f5f5;
 }
 .middleContainerCart ul li {
-  display: inline-block;
   border-bottom: solid 1px #bdbdbd;
   padding: 0.2rem;
   display: grid;
@@ -288,8 +286,11 @@ button:focus {
     width: 90%;
   }
   .middleContainerCart ul li {
-    display: block;
-
+    display: flex;
+    gap: 0.2rem;
+  }
+  .detailsCartDiv {
+    gap: 0.2rem;
   }
 }
 

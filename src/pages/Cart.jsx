@@ -40,10 +40,9 @@ const Cart = ({ cart, handleDeleteCartState, handleIncreaseCartState,
                 return (
                   <li key={obj.title} className="cartItem" id={obj.id}>
                     <div className='detailsCartDiv'>
-                    <div className="cartImgDiv">
-                      <img src={obj.image} alt={`Image of ${obj.title}`} />
-                    </div>
-
+                      <div className="cartImgDiv">
+                        <img src={obj.image} alt={`Image of ${obj.title}`} />
+                      </div>
                       <div>{obj.title}</div>
                       <button onClick={handleDecrease} className="cartBtn" type="button" >-</button>
                       <div>{obj.total}</div>
@@ -65,7 +64,7 @@ const Cart = ({ cart, handleDeleteCartState, handleIncreaseCartState,
             </div>)
           }
         </div>
-      <Footer />
+        <Footer />
       </section>
   )
 }
