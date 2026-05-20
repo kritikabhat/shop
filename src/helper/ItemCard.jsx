@@ -1,5 +1,4 @@
 /**
- * Put these methods to helper later if possible
  * @returns Card for each item on sale
  */
 import Rating from '@mui/material/Rating';

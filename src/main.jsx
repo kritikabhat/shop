@@ -7,13 +7,6 @@ import PageRoutes from './routes/PageRoutes.jsx'
 import ErrorPage from './helper/ErrorPage.jsx'
 import Home from './pages/Home.jsx'
 
-/**
-Fix at the end:
-When it loads at root, home should open. It is blank. Home only opens when you go to /home
-Move the + - total buttons in li also to the dustbin butnn
-*/
-
-
 const router = createBrowserRouter([
   {
     path: "/",

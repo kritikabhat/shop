@@ -2,11 +2,14 @@
  * @returns shopping cart container
  */
 
+import { useNavigate } from "react-router";
 import DeleteIcon from '@mui/icons-material/Delete';
 import Footer from "../helper/Footer";
 
 const Cart = ({ cart, handleDeleteCartState, handleIncreaseCartState, 
               handleDecreaseCartState }) => {
+  
+  let navigate = useNavigate();
 
   const handleCartDelete = (e) => {
     const id = e.currentTarget.parentNode.parentNode.id
@@ -35,6 +38,11 @@ const Cart = ({ cart, handleDeleteCartState, handleIncreaseCartState,
           <h2>Shopping Cart</h2>
           <ul>
             {
+            cart.length < 1 && (<>
+            <li>Don't miss the best deals of the season! Shop now!</li>
+            </>)
+            }
+            {
               cart.map((obj) => {
                 return (
                   <li key={obj.id} className="cartItem" id={obj.id}>
@@ -43,11 +51,11 @@ const Cart = ({ cart, handleDeleteCartState, handleIncreaseCartState,
                         <img src={obj.image} alt={`Image of ${obj.title}`} />
                       </div>
                       <div>{obj.title}</div>
+                    </div>
+                    <div className='cartDeleteBtnDiv'>
                       <button onClick={handleDecrease} className="cartBtn" type="button" >-</button>
                       <div>{obj.total}</div>
                       <button onClick={handleIncrease} className="cartBtn" type="button" >+</button>
-                    </div>
-                    <div className='cartDeleteBtnDiv'>
                       <DeleteIcon onClick={handleCartDelete} className="cartDeleteBtn" type="button" />
                     </div>
                   </li>
@@ -58,6 +66,11 @@ const Cart = ({ cart, handleDeleteCartState, handleIncreaseCartState,
           {
             cart.length > 0 && (<div className='checkoutBtnDiv'>
             <button type="button" className='shopBtn'>Checkout</button>
+            </div>)
+          }
+          {
+            cart.length < 1 && (<div className='checkoutBtnDiv'>
+            <button onClick={() => navigate("/shop")} type="button" className='shopBtn'>Shop Now</button>
             </div>)
           }
         </div>

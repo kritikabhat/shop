@@ -19,8 +19,6 @@ function Root() {
         const newArray = responseJSON.map((item) => {
           return { ...item, isVisible: true }
         })
-
-        // setProductsObjArray(responseJSON)
         setProductsObjArray(newArray)
 
       } catch {

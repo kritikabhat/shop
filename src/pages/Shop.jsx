@@ -1,8 +1,4 @@
 /**
- * Copy layout from pokemon game
- * 
- * get item lists from https://fakestoreapi.com/
- * 
  * @returns page listing of items to purchase
  */
 import ItemCard from "../helper/ItemCard"

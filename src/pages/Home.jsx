@@ -1,5 +1,4 @@
 /**
- * 
  * @returns landing page
  */
 import { useNavigate } from "react-router";
